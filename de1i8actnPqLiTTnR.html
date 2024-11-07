@@ -1,182 +1,128 @@
-<html><head><base href="." /><style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <base href="." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escopo de Trabalho para Período de Férias</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-  body {
-    background: linear-gradient(135deg, #1a1c20 0%, #2b2f36 100%);
-    color: #fff;
-    min-height: 100vh;
-    padding: 2rem;
-  }
+        body {
+            background: linear-gradient(135deg, #1a1c20 0%, #2b2f36 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 2rem;
+        }
 
-  .presentation-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    animation: fadeIn 1s ease-out;
-  }
+        .presentation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-out;
+        }
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #00c2ff;
-    text-align: center;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #00c2ff;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
 
-  h2 {
-    font-size: 1.8rem;
-    color: #7eb9ff;
-    margin: 2rem 0 1rem;
-    border-bottom: 2px solid #00c2ff;
-    padding-bottom: 0.5rem;
-  }
+        h2 {
+            font-size: 1.8rem;
+            color: #7eb9ff;
+            margin: 2rem 0 1rem;
+            border-bottom: 2px solid #00c2ff;
+            padding-bottom: 0.5rem;
+        }
 
-  .section {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background: rgba(0, 194, 255, 0.05);
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-  }
+        .section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(0, 194, 255, 0.05);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
 
-  .section:hover {
-    transform: translateY(-5px);
-  }
+        .section:hover {
+            transform: translateY(-5px);
+        }
 
-  ul {
-    list-style: none;
-    padding-left: 1.5rem;
-  }
+        ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
 
-  li {
-    margin: 0.8rem 0;
-    position: relative;
-    padding-left: 1.5rem;
-  }
+        li {
+            margin: 0.8rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
 
-  li::before {
-    content: "•";
-    color: #00c2ff;
-    font-size: 1.5rem;
-    position: absolute;
-    left: 0;
-    top: -0.2rem;
-  }
+        li::before {
+            content: "•";
+            color: #00c2ff;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -0.2rem;
+        }
 
-  .highlight {
-    color: #00c2ff;
-    font-weight: bold;
-  }
+        .highlight {
+            color: #00c2ff;
+            font-weight: bold;
+        }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-  .progress-container {
-    width: 100%;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
+        .progress-container {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
 
-  .progress-bar {
-    height: 100%;
-    background: #00c2ff;
-    width: 0%;
-    transition: width 0.3s ease;
-  }
-</style></head><body>
-  <div class="progress-container">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
+        .progress-bar {
+            height: 100%;
+            background: #00c2ff;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
 
-  <div class="presentation-container">
-    <h1>Escopo de Trabalho para Período de Férias</h1>
-
-    <div class="section">
-      <h2>Objetivo</h2>
-      <p>Durante o período de férias de um membro da equipe, outro colaborador será responsável por atividades específicas para assegurar o atendimento e suporte contínuos. O foco principal é garantir a execução das tarefas prioritárias e a comunicação eficaz para manter o fluxo de trabalho organizado.</p>
-    </div>
-
-    <div class="section">
-      <h2>1. Comunicação de Horário de Atendimento</h2>
-      <ul>
-        <li>Informar o horário de atendimento nos canais de comunicação (WhatsApp e Slack)</li>
-        <li>Assegurar que toda a equipe esteja ciente da disponibilidade do responsável</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>2. Prioridade para Correção de Bugs</h2>
-      <ul>
-        <li>Realizar testes dos bugs reportados pela equipe</li>
-        <li>Testar a correção assim que o bug for implementado</li>
-        <li>Informar a equipe sobre a resolução do bug</li>
-        <li class="highlight">Priorizar bugs críticos ou recém-relatados</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>3. Trabalho no Backlog</h2>
-      <ul>
-        <li>Focar no backlog quando todos os bugs forem resolvidos</li>
-        <li class="highlight">Tarefa Prioritária: ATE-298</li>
-        <li>Identificar tarefas para resolução direta</li>
-        <li>Avaliar necessidades de refatoração ou escalonamento</li>
-        <li>Estudar especificidades das tarefas pendentes</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>4. Atualização Contínua dos Cards</h2>
-      <ul>
-        <li>Manter cards atualizados com comentários de progresso</li>
-        <li>Registrar e comunicar mudanças importantes</li>
-        <li>Manter sistema atualizado para consultas futuras</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>Conclusão</h2>
-      <p>Esse escopo de trabalho visa assegurar o atendimento contínuo e eficiente durante o período de férias, mantendo a organização e a prioridade nas atividades críticas.</p>
-    </div>
-  </div>
-
-  <script>
-    // Progress bar functionality
-    window.onscroll = function() {
-      let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      let scrolled = (winScroll / height) * 100;
-      document.getElementById("progressBar").style.width = scrolled + "%";
-    };
-
-    // Add smooth scroll animation to sections
-    document.querySelectorAll('.section').forEach(section => {
-      section.addEventListener('click', () => {
-        section.style.transform = 'scale(1.02)';
-        setTimeout(() => {
-          section.style.transform = 'translateY(-5px)';
-        }, 200);
-      });
-    });
-  </script>
-</body></html>
+        #aviso-banner {
+            background-color: #ffcc00;
+            color: #000;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+    </style>
+    <script>
+       
